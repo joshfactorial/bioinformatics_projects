@@ -44,7 +44,7 @@ task print {
     String phrase       # phrase to print
 
     command <<<
-        echo $(( ${phrase} + 3 )) > answer.txt
+        echo $(( 3/${phrase} )) > answer.txt
         echo ${number} ${phrase}
     >>>
 
