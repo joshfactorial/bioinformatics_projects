@@ -11,7 +11,7 @@ task double {
     >>>
 
     output {
-        File Answer = read_string("answer.txt")
+        Int Answer = read_string("answer.txt")
     }
 }
 
@@ -23,7 +23,7 @@ task add_three {
     >>>
 
     output {
-        File Answer = read_string("answer.txt")
+        Int Answer = read_string("answer.txt")
     }
 }
 
@@ -35,19 +35,20 @@ task square {
     >>>
 
     output {
-        File Answer = read_string("answer.txt")
+        Int Answer = read_string("answer.txt")
     }
 }
 
 task print {
     Int number          # number to print
+    String phrase       # phrase to print
 
     command <<<
         echo $(( ${number} + 3 )) > answer.txt
-        echo ${number}
+        echo ${number} ${phrase}
     >>>
 
     output {
-        File Answer = number
+        Int Answer = number
     }
 }
