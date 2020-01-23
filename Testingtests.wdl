@@ -17,7 +17,7 @@ workflow RunTasks {
 
     call Tasks.add_three as Three {
         input:
-            number = number
+            number = Double.Answer
     }
 
     call Tasks.print as Print {
@@ -27,6 +27,6 @@ workflow RunTasks {
 
     call Tasks.square as Square {
         input:
-            number = number
+            number = Three.Answer
     }
 }
