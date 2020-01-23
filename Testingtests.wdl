@@ -3,7 +3,7 @@
 ########################################################################
 
 
-import "testtasks.wdl" as Tasks
+import "bioinformatics_projects/testtasks.wdl" as Tasks
 
 workflow RunTasks {
 
