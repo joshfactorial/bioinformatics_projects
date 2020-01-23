@@ -22,11 +22,11 @@ workflow RunTasks {
 
     call Tasks.print as Print {
         input:
-            number = number
+            number = Three.Answer
     }
 
     call Tasks.square as Square {
         input:
-            number = Three.Answer
+            number = Print.Answer
     }
 }

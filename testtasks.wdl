@@ -11,7 +11,7 @@ task double {
     >>>
 
     output {
-        File Answer = "answer.txt"
+        File Answer = read_string("answer.txt")
     }
 }
 
@@ -23,7 +23,7 @@ task add_three {
     >>>
 
     output {
-        File Answer = "answer.txt"
+        File Answer = read_string("answer.txt")
     }
 }
 
@@ -31,11 +31,11 @@ task square {
     Int number      # number to calculate the square of
 
     command <<<
-        echo $(( ${number} * ${number} )) > answer.txt
+        a=$(( ${number} * ${number} ))
     >>>
 
     output {
-        File Answer = "answer.txt"
+        File Answer = read_string("answer.txt")
     }
 }
 
@@ -48,6 +48,6 @@ task print {
     >>>
 
     output {
-        File Answer = "answer.txt"
+        File Answer = number
     }
 }
