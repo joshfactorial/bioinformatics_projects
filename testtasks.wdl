@@ -31,7 +31,7 @@ task square {
     Int number      # number to calculate the square of
 
     command <<<
-        a=$(( ${number} * ${number} ))
+        echo $(( ${number} * ${number} )) > answer.txt
     >>>
 
     output {
