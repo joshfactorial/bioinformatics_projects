@@ -9,6 +9,7 @@ workflow RunTasks {
 
     Array[Int] number
     Array[Int] Indexes = range(length(number))
+    Array[Int] phrase
 
     scatter (idx in Indexes) {
         call Tasks.double as Double {
@@ -23,7 +24,8 @@ workflow RunTasks {
 
         call Tasks.print as Print {
             input:
-                number = Three.Answer
+                number = Three.Answer,
+                phrase = phrase[idx]
         }
 
         call Tasks.square as Square {
