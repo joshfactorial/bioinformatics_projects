@@ -13,7 +13,7 @@ workflow RunTasks {
     scatter (idx in Indexes) {
         call Tasks.double as Double {
             input:
-                number = number
+                number = number[idx]
         }
 
         call Tasks.add_three as Three {
