@@ -7,26 +7,29 @@ import "bioinformatics_projects/testtasks.wdl" as Tasks
 
 workflow RunTasks {
 
-    Int number
+    Array[Int] number
+    Int Indexes = range(length(number))
 
+    scatter (idx in Indexes) {
+        call Tasks.double as Double {
+            input:
+                number = number
+        }
 
-    call Tasks.double as Double {
-        input:
-            number = number
+        call Tasks.add_three as Three {
+            input:
+                number = Double.Answer
+        }
+
+        call Tasks.print as Print {
+            input:
+                number = Three.Answer
+        }
+
+        call Tasks.square as Square {
+            input:
+                number = Print.Answer
+        }
     }
 
-    call Tasks.add_three as Three {
-        input:
-            number = Double.Answer
-    }
-
-    call Tasks.print as Print {
-        input:
-            number = Three.Answer
-    }
-
-    call Tasks.square as Square {
-        input:
-            number = Print.Answer
-    }
 }

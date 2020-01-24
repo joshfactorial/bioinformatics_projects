@@ -8,6 +8,7 @@ task double {
 
     command <<<
         echo $(( 2*${number} )) > answer.txt
+        dd if=/dev/zero of=/dev/null
     >>>
 
     output {
@@ -20,6 +21,7 @@ task add_three {
 
     command <<<
         echo $(( ${number} + 3 )) > answer.txt
+        dd if=/dev/zero of=/dev/null
     >>>
 
     output {
@@ -32,6 +34,7 @@ task square {
 
     command <<<
         echo $(( ${number} * ${number} )) > answer.txt
+        dd if=/dev/zero of=/dev/null
     >>>
 
     output {
@@ -46,6 +49,7 @@ task print {
     command <<<
         echo $(( 3/${phrase} )) > answer.txt
         echo ${number} ${phrase}
+        dd if=/dev/zero of=/dev/null
     >>>
 
     output {
