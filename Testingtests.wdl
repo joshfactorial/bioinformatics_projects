@@ -8,7 +8,7 @@ import "bioinformatics_projects/testtasks.wdl" as Tasks
 workflow RunTasks {
 
     Array[Int] number
-    Int Indexes = range(length(number))
+    Array[Int] Indexes = range(length(number))
 
     scatter (idx in Indexes) {
         call Tasks.double as Double {
