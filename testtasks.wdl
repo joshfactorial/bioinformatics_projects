@@ -8,8 +8,7 @@ task double {
 
     command <<<
         echo $(( 2*${number} )) > answer.txt
-        sleep 5
-        2m
+        sleep 30s
     >>>
 
     output {
@@ -22,7 +21,7 @@ task add_three {
 
     command <<<
         echo $(( ${number} + 3 )) > answer.txt
-        sleep 2m
+        sleep 30s
     >>>
 
     output {
@@ -35,7 +34,7 @@ task square {
 
     command <<<
         echo $(( ${number} * ${number} )) > answer.txt
-        sleep 2m
+        sleep 30s
     >>>
 
     output {
@@ -50,7 +49,7 @@ task print {
     command <<<
         echo $(( 3/${phrase} )) > answer.txt
         echo ${number} ${phrase}
-        sleep 2m
+        sleep 30s
     >>>
 
     output {
